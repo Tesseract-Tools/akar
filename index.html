@@ -44,6 +44,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
 .brand { display: flex; align-items: flex-end; gap: 12px; text-decoration: none; }
 .brand img { height: 30px; width: auto; }
 .brand span { font: 400 0.8rem/1 var(--mono); color: var(--graphite); padding-bottom: 3px; }
+.brand img.ts { height: 26px; }
 .nav { display: flex; gap: 22px; flex-wrap: wrap; font-size: 0.92rem; }
 .nav a { text-decoration: none; color: var(--graphite); }
 .nav a:hover { color: var(--ink); }
@@ -174,13 +175,29 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
 }
 @media (prefers-reduced-motion: no-preference) { .btn { transition: background-color .15s, color .15s; } }
 </style>
-<link rel="icon" type="image/png" href="img/akar-icon-256.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="canonical" href="https://akar.tesseractstudio.co/">
+<meta name="theme-color" content="#d7261e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Akar by Tesseract Studio">
+<meta property="og:title" content="Akar: 3D modelling for architects">
+<meta property="og:description" content="A free 3D modeller for Windows from Tesseract Studio, Hyderabad. SketchUp-style tools, AutoCAD plans to 3D floors, and an Assistant that builds with you.">
+<meta property="og:url" content="https://akar.tesseractstudio.co/">
+<meta property="og:image" content="https://akar.tesseractstudio.co/img/og-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Akar by Tesseract Studio: 3D modelling for architects, free for Windows">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Akar home"><img src="img/akar-wordmark.png" alt="Ākar" width="900" height="238"><span>by Tesseract Studio</span></a>
+    <a class="brand" href="#top" aria-label="Akar by Tesseract Studio, home"><img src="img/akar-wordmark.png" alt="Ākar" width="900" height="238"><span>by</span><img class="ts" src="img/tesseract-logo.png" alt="Tesseract Studio · Design | Build" width="1200" height="193"></a>
     <nav class="nav" aria-label="Sections"><a href="#tools">Tools</a><a href="#only">Only in Akar</a><a href="#plans">AutoCAD plans</a><a href="#assistant">Assistant</a><a href="#download">Download</a></nav>
   </div>
 </header>
