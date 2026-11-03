@@ -44,7 +44,9 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
 .brand { display: flex; align-items: flex-end; gap: 12px; text-decoration: none; }
 .brand img { height: 30px; width: auto; }
 .brand span { font: 400 0.8rem/1 var(--mono); color: var(--graphite); padding-bottom: 3px; }
-.brand img.ts { height: 26px; }
+.brand img.ts { height: 30px; }
+.hero-mark { width: 300px; height: auto; margin-bottom: 18px; }
+@media (max-width: 560px) { .hero-mark { width: 220px; margin-bottom: 8px; } }
 .nav { display: flex; gap: 22px; flex-wrap: wrap; font-size: 0.92rem; }
 .nav a { text-decoration: none; color: var(--graphite); }
 .nav a:hover { color: var(--ink); }
@@ -197,7 +199,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Akar by Tesseract Studio, home"><img src="img/akar-wordmark.png" alt="Ākar" width="900" height="238"><span>by</span><img class="ts" src="img/tesseract-logo.png" alt="Tesseract Studio · Design | Build" width="1200" height="193"></a>
+    <a class="brand" href="#top" aria-label="Tesseract Studio, home"><img class="ts" src="img/tesseract-logo.png" alt="Tesseract Studio · Design | Build" width="1200" height="193"></a>
     <nav class="nav" aria-label="Sections"><a href="#tools">Tools</a><a href="#only">Only in Akar</a><a href="#plans">AutoCAD plans</a><a href="#assistant">Assistant</a><a href="#download">Download</a></nav>
   </div>
 </header>
@@ -212,6 +214,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
           <p class="lede">Akar is a 3D modeller from Tesseract Studio, an architecture practice in Hyderabad. It has the tools you know from SketchUp and a few it doesn't, turns AutoCAD plans into 3D floors, and has an Assistant that builds what you describe.</p>
         </div>
         <div style="display:grid;gap:10px;justify-items:start">
+          <img class="hero-mark" src="img/akar-wordmark.png" alt="Ākar" width="900" height="238">
           <a class="btn btn-red" href="download/Akar-Setup-0.12.0.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 19h16"/></svg>Download for Windows</a>
           <span class="small">Free · 0.12.0 · 48 MB · Windows 10 and 11</span>
         </div>
