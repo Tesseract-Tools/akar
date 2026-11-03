@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akar by Tesseract Studio</title>
+<meta name="description" content="Akar is a free 3D modeller for Windows from Tesseract Studio, Hyderabad: SketchUp-style tools, AutoCAD plans to 3D floors, tools SketchUp doesn't have, and an Assistant that builds what you describe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a drawing sheet. Sections are numbered sheets; the facts sit in a title block; the pictures are Akar's own window and icons. */
+:root {
+  --paper: #f6f7f6;
+  --panel: #ffffff;
+  --ink: #141515;
+  --graphite: #595e5f;
+  --rule: #d6dad9;
+  --red: #d7261e;
+  --red-deep: #b51d16;
+  --sky-top: #b9d3ea; --sky-low: #e3ecef; --ground-top: #d2cdbf; --ground-low: #c6c0b0;
+  --display: "Jost", "Futura", "Century Gothic", "Segoe UI", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--body); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.05; }
+h2 { font-size: clamp(1.7rem, 3.3vw, 2.4rem); line-height: 1.12; }
+h3 { font-size: 1.05rem; line-height: 1.3; font-weight: 600; }
+p { margin: 0; max-width: 62ch; }
+.muted { color: var(--graphite); }
+.label { font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
+
+.top { border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.brand { display: flex; align-items: flex-end; gap: 12px; text-decoration: none; }
+.brand img { height: 30px; width: auto; }
+.brand span { font: 400 0.8rem/1 var(--mono); color: var(--graphite); padding-bottom: 3px; }
+.nav { display: flex; gap: 22px; flex-wrap: wrap; font-size: 0.92rem; }
+.nav a { text-decoration: none; color: var(--graphite); }
+.nav a:hover { color: var(--ink); }
+
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 3px; font: 600 1rem/1 var(--body); text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-deep); }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--paper); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.small { font: 400 0.82rem/1.5 var(--mono); color: var(--graphite); }
+
+.hero .wrap { display: grid; gap: 40px; padding-block: 60px 44px; }
+.hero-copy { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+.hero-copy > div { display: grid; gap: 20px; min-width: 0; }
+.hero-copy .lede { font-size: 1.12rem; color: var(--graphite); }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+/* The real Akar window */
+.shot { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.shot img { width: 100%; height: auto; border: 1px solid #c9cdcc; border-radius: 8px; box-shadow: 0 18px 40px -24px rgba(20, 21, 21, 0.45); }
+.shot figcaption { font: 400 0.8rem/1.45 var(--mono); color: var(--graphite); }
+/* The Akar window, drawn from its real layout and icons */
+.window { background: #fbfbfb; border: 1px solid #c9cdcc; border-radius: 8px; overflow: hidden; box-shadow: 0 18px 40px -24px rgba(20, 21, 21, 0.45); min-width: 0; }
+.win-title { display: flex; align-items: center; gap: 8px; padding: 7px 12px; font: 400 0.78rem/1 var(--body); color: #333; background: #fff; border-bottom: 1px solid #e4e6e5; }
+.win-title .dots { margin-left: auto; display: flex; gap: 14px; color: #777; font: 400 0.8rem/1 var(--mono); }
+.win-menu { display: flex; gap: 16px; padding: 6px 12px; font-size: 0.78rem; color: #333; background: #fff; flex-wrap: wrap; }
+.win-menu .assist { margin-left: auto; display: flex; align-items: center; gap: 5px; }
+.win-bar { display: flex; align-items: center; gap: 2px; padding: 4px 8px; background: #fff; border-top: 1px solid #eff0f0; overflow: hidden; flex-wrap: nowrap; }
+.win-bar .sep { width: 1px; height: 18px; background: #dfe1e0; margin: 0 6px; flex: none; }
+.win-bar .views { font-size: 0.74rem; color: #333; display: flex; gap: 12px; padding: 0 6px; flex: none; }
+.tb-btn { width: 30px; height: 28px; display: grid; place-items: center; border-radius: 4px; flex: none; }
+.tb-btn svg.ic { width: 18px; height: 18px; }
+.tb-btn.on { background: #fde8e6; }
+.win-body { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; padding: 8px; background: #f1f2f1; }
+.rail { background: #fff; border: 1px solid #e3e5e4; border-radius: 6px; padding: 6px; display: grid; grid-template-columns: repeat(3, 30px); gap: 2px; align-content: start; }
+.rail .gap { grid-column: 1 / -1; height: 1px; background: #e7e9e8; margin: 4px 2px; }
+.view { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 16 / 9; max-width: 100%; background: linear-gradient(var(--sky-top), var(--sky-low) 40%, var(--ground-top) 40%, var(--ground-low)); }
+.view svg.axes { position: absolute; inset: 0; width: 100%; height: 100%; }
+.view .mason { position: absolute; left: 47%; bottom: 25%; height: 36%; width: auto; transform: translateX(-50%); }
+.strip { background: #fff; border: 1px solid #e3e5e4; border-radius: 6px; padding: 6px 4px; display: grid; gap: 8px; align-content: start; }
+.strip .tb-btn svg.ic { width: 17px; height: 17px; }
+.win-status { display: flex; justify-content: space-between; gap: 12px; padding: 6px 12px; font: 400 0.72rem/1.3 var(--body); color: #444; background: #fff; border-top: 1px solid #e4e6e5; }
+.win-status .polar { border: 1px solid var(--red); color: var(--red); padding: 1px 6px; border-radius: 3px; flex: none; }
+.win-status span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+.titleblock { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.titleblock .wrap { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.tb { padding-block: 14px; padding-inline: 14px; border-left: 1px solid var(--rule); display: grid; gap: 4px; min-width: 0; }
+.tb:first-child { border-left: 0; padding-left: 0; }
+.tb b { font: 500 1rem/1.3 var(--body); }
+
+.sheet { padding-block: 72px; border-bottom: 1px solid var(--rule); }
+.sheet-head { display: grid; gap: 14px; margin-bottom: 36px; }
+.sheet-head .no { font: 500 0.78rem/1 var(--mono); color: var(--red); letter-spacing: 0.08em; }
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
+.stat { font: 500 clamp(2.4rem, 5vw, 3.4rem)/1 var(--display); }
+.stat small { font: 400 1rem/1.5 var(--body); color: var(--graphite); display: block; margin-top: 10px; max-width: 36ch; }
+
+/* Tool grid: real icons with their names */
+.tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.tool { background: var(--panel); display: flex; align-items: center; gap: 12px; padding: 14px 14px; font-size: 0.92rem; min-width: 0; }
+
+/* Only in Akar */
+.extras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.extra { background: var(--panel); border: 1px solid var(--rule); padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.extra .icons { display: flex; gap: 8px; }
+.extra .icons svg.ic { width: 30px; height: 30px; }
+.extra .tag { font: 500 0.7rem/1 var(--mono); letter-spacing: 0.08em; color: var(--red); text-transform: uppercase; }
+
+/* Plan to 3D as steps */
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule); background: var(--panel); counter-reset: f; }
+.flow > div { padding: 22px 20px; border-left: 1px solid var(--rule); display: grid; gap: 8px; align-content: start; counter-increment: f; min-width: 0; }
+.flow > div:first-child { border-left: 0; }
+.flow > div::before { content: "0" counter(f); font: 500 0.78rem/1 var(--mono); color: var(--red); }
+
+.chat { display: grid; gap: 12px; }
+.say { background: var(--panel); border: 1px solid var(--rule); padding: 14px 16px; border-radius: 3px; display: grid; gap: 6px; }
+.say .who { font: 500 0.7rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
+.say.you { border-left: 3px solid var(--red); }
+.say .steps-done { display: grid; gap: 3px; font: 400 0.82rem/1.4 var(--mono); color: var(--graphite); }
+.say .actions { display: flex; gap: 8px; margin-top: 4px; }
+.say .actions span { font: 500 0.78rem/1 var(--body); color: var(--red); border: 1px solid #f0c6c3; background: #fdf1f0; padding: 6px 10px; border-radius: 3px; }
+.points { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.points li { display: grid; gap: 3px; padding-left: 18px; position: relative; }
+.points li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border: 1.5px solid var(--red); }
+.points b { font-weight: 600; }
+.note { margin-top: 28px; padding: 16px 18px; border: 1px dashed var(--graphite); font-size: 0.95rem; max-width: 760px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chip { font: 500 0.78rem/1 var(--mono); border: 1px solid var(--rule); background: var(--panel); padding: 7px 9px; border-radius: 2px; }
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.cols > div { display: grid; gap: 6px; align-content: start; min-width: 0; }
+
+.download { background: var(--ink); color: var(--paper); }
+.download .wrap { padding-block: 72px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+.download h2 { color: #fff; }
+.download .muted, .download .label { color: #b8bdbd; }
+.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; }
+.steps li::before { content: counter(s); font: 500 0.85rem/1.9 var(--mono); color: #fff; border: 1px solid #6d7373; text-align: center; height: 28px; }
+.req { display: grid; gap: 10px; margin: 8px 0 0; }
+.req div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; padding-block: 10px; border-top: 1px solid #3a3e3e; }
+.req dt { color: #b8bdbd; font: 400 0.85rem/1.5 var(--mono); }
+.req dd { margin: 0; }
+
+.feedback .wrap { padding-block: 64px; display: grid; gap: 16px; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.mail code { font: 500 1.15rem/1 var(--mono); background: var(--panel); border: 1px solid var(--rule); padding: 12px 14px; user-select: all; }
+.copied { font: 400 0.8rem/1 var(--mono); color: var(--graphite); }
+.foot { border-top: 1px solid var(--rule); }
+.foot .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 28px; }
+.foot img { height: 22px; width: auto; }
+
+@media (max-width: 900px) {
+  .hero-copy, .split, .download .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .titleblock .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tb { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); }
+  .extras, .cols { grid-template-columns: minmax(0, 1fr); }
+  .flow { grid-template-columns: minmax(0, 1fr); }
+  .flow > div { border-left: 0; border-top: 1px solid var(--rule); }
+  .flow > div:first-child { border-top: 0; }
+  .req div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+@media (max-width: 640px) {
+  .rail, .strip, .win-menu span:not(.assist), .win-bar .views { display: none; }
+  .win-body { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) { .btn { transition: background-color .15s, color .15s; } }
+</style>
+<link rel="icon" type="image/png" href="img/akar-icon-256.png">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Akar home"><img src="img/akar-wordmark.png" alt="Ākar" width="900" height="238"><span>by Tesseract Studio</span></a>
+    <nav class="nav" aria-label="Sections"><a href="#tools">Tools</a><a href="#only">Only in Akar</a><a href="#plans">AutoCAD plans</a><a href="#assistant">Assistant</a><a href="#download">Download</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div>
+          <span class="label">3D modelling for architects · Windows</span>
+          <h1>Model the way you already draw.</h1>
+          <p class="lede">Akar is a 3D modeller from Tesseract Studio, an architecture practice in Hyderabad. It has the tools you know from SketchUp and a few it doesn't, turns AutoCAD plans into 3D floors, and has an Assistant that builds what you describe.</p>
+        </div>
+        <div style="display:grid;gap:10px;justify-items:start">
+          <a class="btn btn-red" href="download/Akar-Setup-0.12.0.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 19h16"/></svg>Download for Windows</a>
+          <span class="small">Free · 0.12.0 · 48 MB · Windows 10 and 11</span>
+        </div>
+      </div>
+
+      <figure class="shot">
+        <img src="img/akar-window.jpg" srcset="img/akar-window-small.jpg 1278w, img/akar-window.jpg 1917w" sizes="(max-width: 1190px) 100vw, 1160px" alt="The Akar window: menus and toolbars along the top, the Large Tool Set on the left, the 3D view with the start-up scale figure standing at the origin, and the panel strip on the right" width="1917" height="1137">
+        <figcaption>Akar 0.12.0 as it opens: a new model with the start-up figure, 1,829 mm tall, for scale.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="titleblock" aria-label="Akar at a glance">
+    <div class="wrap">
+      <div class="tb"><span class="label">Drawing</span><b>Akar 0.12.0</b></div>
+      <div class="tb"><span class="label">Units</span><b>mm, m, ft-in</b></div>
+      <div class="tb"><span class="label">Opens</span><b>DWG, DXF, OBJ, IFC…</b></div>
+      <div class="tb"><span class="label">Price</span><b>Free</b></div>
+      <div class="tb"><span class="label">Drawn by</span><b>Tesseract Studio</b></div>
+    </div>
+  </section>
+
+  <section class="sheet" id="tools">
+    <div class="wrap">
+      <div class="sheet-head"><span class="no">SHEET 01 · TOOLS</span><h2>The tools are where your hands expect them.</h2></div>
+      <div class="split">
+        <div style="display:grid;gap:22px">
+          <div class="stat">230 of 251<small>features of SketchUp Pro 2022 work the same way in Akar, down to the keys and the status-bar hints, in our own side-by-side test.</small></div>
+          <p class="muted">Typed lengths, inference snapping, Shift to lock a direction, the same shortcuts. Groups and components, tags and the Outliner, sections with hatches, shadows by date and place, scenes and animations.</p>
+        </div>
+        <div class="tools" data-tools="line:Line;rectangle:Rectangle;circle:Circle;arc2:Arc;pushpull:Push/Pull;followme:Follow Me;offset:Offset;move:Move;rotate:Rotate;scale:Scale;tape:Tape Measure;dimension:Dimension;paint:Paint Bucket;eraser:Eraser;section:Section Plane;component:Components;tag:Tags;outliner:Outliner;shadows:Shadows;scenes:Scenes;style_xray:X-ray;fromcontours:Sandbox;union:Solid Tools;walk:Walk"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="only">
+    <div class="wrap">
+      <div class="sheet-head"><span class="no">SHEET 02 · ONLY IN AKAR</span><h2>Built in, with no extensions to hunt for.</h2><p class="muted">Tools that SketchUp leaves to add-ons, or doesn't have at all.</p></div>
+      <div class="extras">
+        <div class="extra"><div class="icons" data-icons="mirror"></div><span class="tag">Edit</span><h3>Mirror</h3><p class="muted">Pick three points for the mirror plane, or two for an upright one. Tap Ctrl to keep the original.</p></div>
+        <div class="extra"><div class="icons" data-icons="round_corners"></div><span class="tag">Edit</span><h3>Round Corners</h3><p class="muted">Round, sharp or bevelled corners with a live preview. Set the offset and segments as you go.</p></div>
+        <div class="extra"><div class="icons" data-icons="bend"></div><span class="tag">Edit</span><h3>Bend</h3><p class="muted">Bend a group along any path, a line, an arc or a curve, stretched or kept to length.</p></div>
+        <div class="extra"><div class="icons" data-icons="swept_blend"></div><span class="tag">Draw</span><h3>Swept Blend</h3><p class="muted">Sweep along a path through several different profiles, and the shape flows smoothly from one to the next.</p></div>
+        <div class="extra"><div class="icons" data-icons="working_plane"></div><span class="tag">Draw</span><h3>Working plane</h3><p class="muted">Lock drawing to any plane: a face, a floor level or three points. Every point lands on it.</p></div>
+        <div class="extra"><div class="icons" data-icons="component group"></div><span class="tag">Sculpt</span><h3>Sculpt tools</h3><p class="muted">Soft forms for furniture and objects: brushes, creases, Thicken, cushions with tufting, and jali or Voronoi cut-outs.</p></div>
+        <div class="extra"><div class="icons" data-icons="section union"></div><span class="tag">AutoCAD</span><h3>Plans to floors</h3><p class="muted">A DWG plan becomes walls, doors, windows and rooms, then 3D floors with frames and glass. See below.</p></div>
+        <div class="extra"><div class="icons" data-icons="chat"></div><span class="tag">Assistant</span><h3>Assistant</h3><p class="muted">Describe it, or attach a photo or drawing, and it builds the model with you. Keep or undo in one click.</p></div>
+        <div class="extra"><div class="icons" data-icons="outliner"></div><span class="tag">Office</span><h3>Quantities</h3><p class="muted">Wall areas and volumes by thickness, a door and window schedule, and room areas from an imported plan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="plans">
+    <div class="wrap">
+      <div class="sheet-head"><span class="no">SHEET 03 · FROM PLAN TO 3D</span><h2>Bring in an AutoCAD plan. Get floors back.</h2></div>
+      <div class="flow">
+        <div><h3>Import the DWG</h3><p class="muted">File › Import AutoCAD Plan. Several plans on one sheet? Pick the ones you want.</p></div>
+        <div><h3>Say which floor</h3><p class="muted">Ground, first, second… Floors stack at their heights and line up by their walls.</p></div>
+        <div><h3>Answer a few questions</h3><p class="muted">A gap that might be a door, a room without a name, an odd wall thickness. Tell it once which layers are walls.</p></div>
+        <div><h3>Build</h3><p class="muted">Walls, slabs, door and window frames with glass, painted and grouped by floor.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="assistant">
+    <div class="wrap">
+      <div class="sheet-head"><span class="no">SHEET 04 · ASSISTANT</span><h2>Say what you want in your own words.</h2></div>
+      <div class="split" style="grid-template-columns:minmax(0,7fr) minmax(0,5fr)">
+        <div class="chat">
+          <div class="say you"><span class="who">You</span>Draw a 4 m by 3.5 m bedroom with 230 mm walls, 3 m high, standing on a 150 mm slab.</div>
+          <div class="say"><span class="who">Akar</span>
+            <div class="steps-done"><span>✓ Box 4,460 × 3,960 × 150 mm high, in a new group "Slab"</span><span>✓ Room walls 4,000 × 3,500 mm inside, 230 mm thick, 3,000 mm high</span></div>
+            I've drawn the bedroom: 230 mm walls 3,000 mm high on a 150 mm slab. I can add a door or a window next.
+            <div class="actions"><span>Keep</span><span>Undo</span></div>
+          </div>
+          <div class="say you"><span class="who">You</span>Add a 900 × 2100 door in the south wall and a 1500 × 1200 window at 900 sill in the east wall.</div>
+        </div>
+        <ul class="points">
+          <li><b>Attach a photo, a PDF or a DWG</b><span class="muted">It asks a few questions on a card (width, height, finish) or goes ahead with sensible guesses.</span></li>
+          <li><b>It checks its own work</b><span class="muted">It looks at the model from the photo's angle and measures the outline against the photo.</span></li>
+          <li><b>Rooms, floors, stairs, built-ins</b><span class="muted">Walls, openings, slabs, staircases, railings, kitchens, wardrobes, TV units.</span></li>
+        </ul>
+      </div>
+      <p class="note">The Assistant runs on Claude, by Anthropic. In this early version it uses your own Claude account (a Pro or Max plan, through the free Claude Code app) or an Anthropic API key. Everything else in Akar works without it.</p>
+    </div>
+  </section>
+
+  <section class="sheet" id="files">
+    <div class="wrap">
+      <div class="sheet-head"><span class="no">SHEET 05 · FILES</span><h2>It talks to the rest of your office.</h2></div>
+      <div class="cols">
+        <div><span class="label">Opens</span><div class="chips"><span class="chip">DWG</span><span class="chip">DXF</span><span class="chip">OBJ</span><span class="chip">STL</span><span class="chip">DAE</span><span class="chip">glTF</span><span class="chip">IFC</span><span class="chip">FBX</span><span class="chip">3DS</span><span class="chip">KMZ</span><span class="chip">PNG/JPG</span></div></div>
+        <div><span class="label">Saves 3D</span><div class="chips"><span class="chip">OBJ</span><span class="chip">DAE</span><span class="chip">STL</span><span class="chip">glTF</span><span class="chip">IFC</span><span class="chip">USDZ</span><span class="chip">DXF</span></div></div>
+        <div><span class="label">Saves drawings and pictures</span><div class="chips"><span class="chip">DWG</span><span class="chip">DXF</span><span class="chip">PDF</span><span class="chip">PNG</span><span class="chip">JPG</span><span class="chip">MP4</span></div></div>
+      </div>
+      <p class="muted" style="margin-top:24px">Models are saved as .akr files. Plugins add tools, panels and file types, and install from one .akrplugin file.</p>
+    </div>
+  </section>
+
+  <section class="download" id="download">
+    <div class="wrap">
+      <div style="display:grid;gap:22px;align-content:start">
+        <span class="label">Download</span>
+        <h2>Akar 0.12.0 for Windows</h2>
+        <p class="muted">Free. One setup file, nothing else to install.</p>
+        <div class="cta"><a class="btn btn-red" href="download/Akar-Setup-0.12.0.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 19h16"/></svg>Download Akar-Setup-0.12.0.exe</a></div>
+        <span class="small" style="color:#b8bdbd">48 MB · installs for you alone, no administrator rights needed</span>
+        <dl class="req">
+          <div><dt>Windows</dt><dd>Windows 10 (version 1809 or later) or Windows 11, 64-bit</dd></div>
+          <div><dt>Graphics</dt><dd>OpenGL 3.3. Tested on Intel HD 630, Intel Arc and NVIDIA RTX.</dd></div>
+          <div><dt>Disk</dt><dd>About 150 MB</dd></div>
+          <div><dt>Assistant</dt><dd>Internet, and a Claude Pro or Max plan (through Claude Code) or an Anthropic API key</dd></div>
+        </dl>
+      </div>
+      <div style="display:grid;gap:18px;align-content:start">
+        <span class="label">Installing</span>
+        <ol class="steps">
+          <li><span>Download the setup file and open it.</span></li>
+          <li><span>If Windows says "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. Windows shows this for new programs until enough people have installed them.</span></li>
+          <li><span>Click through the setup. Akar goes in your Start menu and .akr files open with it.</span></li>
+          <li><span>On a laptop with two graphics chips, set Akar to High performance in Windows Settings › Display › Graphics.</span></li>
+          <li><span>For the Assistant, install Claude Code, sign in, then in Akar open the Assistant and choose ⚙ › Connect Claude.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="feedback">
+    <div class="wrap">
+      <span class="label">Early version</span>
+      <h2>Tell us what you made, and what got in your way.</h2>
+      <p class="muted">Akar is in its first round of testing with architects. A note about what worked, what broke and what you missed helps more than you'd think.</p>
+      <div class="mail"><code id="mail">tools@tesseractstudio.co</code><button class="btn btn-line" id="copy" type="button">Copy address</button><span class="copied" id="copied" role="status"></span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="img/tesseract-logo.png" alt="Tesseract · Design | Build" width="1200" height="193">
+    <span class="small">Tesseract Studio, Hyderabad · © 2026</span>
+    <p class="small" style="max-width:none;flex-basis:100%">SketchUp is a trademark of Trimble Inc. AutoCAD and DWG are trademarks of Autodesk, Inc. Claude is a trademark of Anthropic. Akar is an independent program from Tesseract Studio and is not made, endorsed or supported by these companies; their names are used only to describe what Akar works with.</p>
+  </div>
+</footer>
+
+<script>
+var ICONS = {"arc2":{"d":"M 5 17.5 a 7 7 0 0 1 14 0","p":["","","M 2.8 17.5 a 2.2 2.2 0 1 0 4.4 0 a 2.2 2.2 0 1 0 -4.4 0 z M 16.8 17.5 a 2.2 2.2 0 1 0 4.4 0 a 2.2 2.2 0 1 0 -4.4 0 z"]},"axes":{"d":"M 5 19 V 4.5 M 5 19 h 14.5 M 5 19 l -2.6 2.6 M 2.6 7 L 5 4.5 L 7.4 7 M 17 16.6 l 2.5 2.4 l -2.5 2.4","p":["","","M 3.4 19 a 1.6 1.6 0 1 0 3.2 0 a 1.6 1.6 0 1 0 -3.2 0 z"]},"bend":{"d":"M 3 16 H 10 A 6.5 6.5 0 0 0 16.5 9.5 V 4 H 20 V 9.5 A 10 10 0 0 1 10 19.5 H 3 Z","p":["M 3 16 H 10 A 6.5 6.5 0 0 0 16.5 9.5 V 4 H 20 V 9.5 A 10 10 0 0 1 10 19.5 H 3 Z","M 20 9.5 A 10 10 0 0 1 10 19.5",""]},"chat":{"d":"M 4 5.5 h 16 v 10.5 H 10 l -6 4.5 Z","p":["","",""]},"circle":{"d":"M 12 4.5 a 7.5 7.5 0 1 1 0 15 a 7.5 7.5 0 1 1 0 -15 z","p":["M 12 4.5 a 7.5 7.5 0 1 1 0 15 a 7.5 7.5 0 1 1 0 -15 z","M 12 12 h 7.5","M 10.4 12 a 1.6 1.6 0 1 0 3.2 0 a 1.6 1.6 0 1 0 -3.2 0 z"]},"component":{"d":"M 12 3 l 8 4.5 v 9 L 12 21 l -8 -4.5 v -9 z M 4 7.5 l 8 4.5 l 8 -4.5 M 12 12 v 9","p":["M 12 3 l 8 4.5 l -8 4.5 l -8 -4.5 z","",""]},"dimension":{"d":"M 4 6.5 v 11 M 20 6.5 v 11 M 4.6 12 h 14.8","p":["","M 7.3 9.4 L 4.6 12 l 2.7 2.6 M 16.7 9.4 l 2.7 2.6 l -2.7 2.6",""]},"eraser":{"d":"M 14.6 4.4 l 5 5 l -9.6 9.6 H 6.2 l -2.6 -2.6 a 1.8 1.8 0 0 1 0 -2.6 z","p":["M 8.8 10.2 l 5 5 L 10 19 H 6.2 l -2.6 -2.6 a 1.8 1.8 0 0 1 0 -2.6 z","M 13.5 20.5 h 7",""]},"followme":{"d":"M 5 20 v -8.6 A 6.4 6.4 0 0 1 11.4 5 H 20","p":["M 2.6 17.4 h 4.8 v 4.8 H 2.6 z","M 17.4 2.4 L 20 5 l -2.6 2.6",""]},"freehand":{"d":"M 3.5 17.5 c 1.8 -5.8 3.9 -8.4 5.9 -6.4 c 2.1 2.1 2.2 6.4 4.6 5.6 c 2.3 -0.8 3 -6.6 6.5 -8.7","p":["","","M 18.1 8 a 2 2 0 1 0 4 0 a 2 2 0 1 0 -4 0 z"]},"fromcontours":{"d":"M 3 5 C 3.75 4.75 6 3.5 7.5 3.5 C 9 3.5 10.5 4.5 12 5 C 13.5 5.5 15 6.5 16.5 6.5 C 18 6.5 20.25 5.25 21 5 M 3 11 C 3.75 10.75 6 9.5 7.5 9.5 C 9 9.5 10.5 10.5 12 11 C 13.5 11.5 15 12.5 16.5 12.5 C 18 12.5 20.25 11.25 21 11 M 3 11 L 7.5 20 L 12 11 L 16.5 20 L 21 11 M 7.5 20 h 9","p":["","",""]},"group":{"d":"M 3 7.5 V 3 h 4.5 M 16.5 3 H 21 v 4.5 M 21 16.5 V 21 h -4.5 M 7.5 21 H 3 v -4.5 M 12 7.5 l 4.5 2.5 v 5 L 12 17.5 L 7.5 15 v -5 Z M 7.5 10 l 4.5 2.5 l 4.5 -2.5 M 12 12.5 v 5","p":["M 12 7.5 l 4.5 2.5 L 12 12.5 L 7.5 10 Z","",""]},"info":{"d":"M 12 3.5 a 8.5 8.5 0 1 0 0 17 a 8.5 8.5 0 1 0 0 -17 Z M 12 11 v 5.5 M 12 7.6 v 0.1","p":["","",""]},"lasso":{"d":"M 12 4.5 c 4.7 0 8.5 2.2 8.5 4.9 s -3.8 4.9 -8.5 4.9 S 3.5 12.1 3.5 9.4 S 7.3 4.5 12 4.5 Z M 6.8 13.1 c -1.4 1.3 -1.4 3.2 0.1 4.2 c 1.3 0.9 1.2 2.4 0.1 3.5","p":["M 12 4.5 c 4.7 0 8.5 2.2 8.5 4.9 s -3.8 4.9 -8.5 4.9 S 3.5 12.1 3.5 9.4 S 7.3 4.5 12 4.5 Z","",""]},"line":{"d":"M 6.2 17.8 L 17.8 6.2","p":["","","M 3.8 19.2 a 2.4 2.4 0 1 0 4.8 0 a 2.4 2.4 0 1 0 -4.8 0 z M 15.4 4.8 a 2.4 2.4 0 1 0 4.8 0 a 2.4 2.4 0 1 0 -4.8 0 z"]},"mirror":{"d":"M 10 6.5 L 4 18 h 6 z M 14 6.5 L 20 18 h -6 z","p":["M 10 6.5 L 4 18 h 6 z","M 12 2.8 v 2.4 M 12 8.2 v 2.4 M 12 13.4 v 2.4 M 12 18.8 v 2.4",""]},"move":{"d":"M 12 2.8 v 18.4 M 2.8 12 h 18.4 M 9.4 5.4 L 12 2.8 l 2.6 2.6 M 9.4 18.6 L 12 21.2 l 2.6 -2.6 M 5.4 9.4 L 2.8 12 l 2.6 2.6 M 18.6 9.4 l 2.6 2.6 l -2.6 2.6","p":["","","M 9 9 h 6 v 6 H 9 z"]},"new":{"d":"M 6 3 h 8 l 4 4 v 14 H 6 Z M 14 3 v 4 h 4","p":["","",""]},"offset":{"d":"M 3.8 3.8 h 16.4 v 16.4 H 3.8 z","p":["M 8.4 8.4 h 7.2 v 7.2 H 8.4 z","M 8.4 8.4 h 7.2 v 7.2 H 8.4 z",""]},"open":{"d":"M 3 7.5 V 18 a 1.5 1.5 0 0 0 1.5 1.5 h 15 A 1.5 1.5 0 0 0 21 18 V 9 a 1.5 1.5 0 0 0 -1.5 -1.5 H 12 L 10 5 H 4.5 A 1.5 1.5 0 0 0 3 6.5 Z","p":["","",""]},"orbit":{"d":"M 20.6 12 c 0 2.6 -3.9 4.6 -8.6 4.6 S 3.4 14.6 3.4 12 S 7.3 7.4 12 7.4 c 2.6 0 5 0.6 6.5 1.6","p":["M 9.4 12 a 2.6 2.6 0 1 0 5.2 0 a 2.6 2.6 0 1 0 -5.2 0 z","M 15.6 6.4 l 3 2.6 l -3.6 1",""]},"outliner":{"d":"M 3.5 4.5 h 7 M 6 4.5 v 14.5 M 6 11.5 h 4 M 6 19 h 4 M 12.5 11.5 h 8 M 12.5 19 h 8 M 13.5 4.5 h 7","p":["","",""]},"paint":{"d":"M 4.6 11.4 L 11 5 l 7 7 l -6.4 6.4 a 2 2 0 0 1 -2.8 0 L 4.6 14.2 a 2 2 0 0 1 0 -2.8 z M 11 5 L 8.5 2.5","p":["M 5 12.4 h 12.6 l -6 6 a 2 2 0 0 1 -2.8 0 L 5 14.6 a 1.6 1.6 0 0 1 0 -2.2 z","","M 20 14.2 c 1.1 1.5 1.7 2.6 1.7 3.5 a 1.7 1.7 0 0 1 -3.4 0 c 0 -0.9 0.6 -2 1.7 -3.5 z"]},"palette":{"d":"M 12 3.5 a 8.5 8.5 0 0 0 0 17 c 1.4 0 2 -1 1.6 -2.1 c -0.5 -1.4 0.4 -2.6 1.9 -2.6 h 2.2 a 2.8 2.8 0 0 0 2.8 -2.8 C 20.5 7.3 16.7 3.5 12 3.5 Z M 8 11 h 0.01 M 10.5 7.5 h 0.01 M 15 8 h 0.01","p":["","",""]},"polygon":{"d":"M 8.2 5.4 h 7.6 l 3.8 6.6 l -3.8 6.6 H 8.2 L 4.4 12 z","p":["M 8.2 5.4 h 7.6 l 3.8 6.6 l -3.8 6.6 H 8.2 L 4.4 12 z","","M 10.4 12 a 1.6 1.6 0 1 0 3.2 0 a 1.6 1.6 0 1 0 -3.2 0 z"]},"pushpull":{"d":"M 3.8 14.6 L 12 18.7 l 8.2 -4.1 v -3.2 L 12 7.3 l -8.2 4.1 z M 3.8 11.4 L 12 15.5 l 8.2 -4.1 M 12 15.5 v 3.2","p":["M 3.8 11.4 L 12 7.3 l 8.2 4.1 l -8.2 4.1 z","M 12 11 V 2.6 M 9.3 5.3 L 12 2.6 l 2.7 2.7",""]},"rectangle":{"d":"M 4.5 6.5 h 15 v 11 h -15 z","p":["M 4.5 6.5 h 15 v 11 h -15 z","","M 2.5 6.5 a 2 2 0 1 0 4 0 a 2 2 0 1 0 -4 0 z M 17.5 17.5 a 2 2 0 1 0 4 0 a 2 2 0 1 0 -4 0 z"]},"redo":{"d":"M 15 5.5 l 4.5 4.5 l -4.5 4.5 M 19 10 h -9 a 5 5 0 0 0 0 10 h 2.5","p":["","",""]},"rotate":{"d":"M 19.2 12.5 a 7.2 7.2 0 1 1 -2.1 -5.6","p":["","M 20 3.6 v 4.6 h -4.6","M 10.3 12 a 1.7 1.7 0 1 0 3.4 0 a 1.7 1.7 0 1 0 -3.4 0 z"]},"round_corners":{"d":"M 5 20 V 11.5 A 6.5 6.5 0 0 1 11.5 5 H 20","p":["M 5 20 V 11.5 A 6.5 6.5 0 0 1 11.5 5 H 20 V 20 z","M 5 11.5 A 6.5 6.5 0 0 1 11.5 5",""]},"save":{"d":"M 5 4 h 11 l 3 3 v 13 H 5 Z M 8 4 v 5 h 7 V 4 M 8 20 v -6 h 8 v 6","p":["","",""]},"scale":{"d":"M 4 20 v -7.5 h 7.5 V 20 z M 4 9 V 4 h 16 v 16 h -5","p":["M 4 20 v -7.5 h 7.5 V 20 z","M 11.5 12.5 L 19 5 M 14 5 h 5 v 5",""]},"scenes":{"d":"M 6.5 8.5 h 14 v 10 h -14 Z M 3.5 5.5 h 14 v 3 M 3.5 5.5 v 10 h 3 M 11.5 11.2 v 4.6 l 4 -2.3 Z","p":["","",""]},"section":{"d":"M 6 3.6 l 12 3.2 v 13.6 L 6 17.2 z","p":["M 6 3.6 l 12 3.2 v 13.6 L 6 17.2 z","M 2.5 12 h 3.5 M 18 12 h 3.5 M 19.4 10.2 l 2.1 1.8 l -2.1 1.8",""]},"select":{"d":"M 6 3.2 l 12.2 9.7 l -5.7 1.1 l 3.3 6.4 l -2.7 1.3 l -3.2 -6.5 L 6 18.6 z","p":["M 6 3.2 l 12.2 9.7 l -5.7 1.1 l 3.3 6.4 l -2.7 1.3 l -3.2 -6.5 L 6 18.6 z","",""]},"shadows":{"d":"M 5.4 7 a 1.6 1.6 0 1 0 3.2 0 a 1.6 1.6 0 1 0 -3.2 0 M 9.8 7 L 10.9 7 M 8.98 8.98 L 9.76 9.76 M 7 9.8 L 7 10.9 M 5.02 8.98 L 4.24 9.76 M 4.2 7 L 3.1 7 M 5.02 5.02 L 4.24 4.24 M 7 4.2 L 7 3.1 M 8.98 5.02 L 9.76 4.24 M 11.4 12.8 a 3.6 3.6 0 1 0 7.2 0 a 3.6 3.6 0 1 0 -7.2 0 M 12.4 19.8 h 7.8 M 11.9 19.8 a 4.4 1 0 1 0 8.8 0 a 4.4 1 0 1 0 -8.8 0","p":["","",""]},"style_shaded":{"d":"M 3.5 9 L 15 9 L 15 20.5 L 3.5 20.5 Z M 3.5 9 L 9 3.5 L 20.5 3.5 L 15 9 M 20.5 3.5 L 20.5 15 L 15 20.5 M 16.83 7.17 L 16.83 18.67 M 18.67 5.33 L 18.67 16.83","p":["","",""]},"style_xray":{"d":"M 3.5 9 L 15 9 L 15 20.5 L 3.5 20.5 Z M 3.5 9 L 9 3.5 L 20.5 3.5 L 15 9 M 20.5 3.5 L 20.5 15 L 15 20.5 M 9 3.5 L 9 15 L 20.5 15 M 3.5 20.5 L 9 15 M 5.2 13.6 l 2.6 -2.6 M 5.2 16.4 l 1.2 -1.2","p":["","",""]},"swept_blend":{"d":"M 3 14 H 8 V 20 H 3 Z M 3 14 C 9 14 11 4 18 4 M 8 20 C 14 20 14 10 18 10","p":["M 3 14 H 8 V 20 H 3 Z","M 18 4 A 3 3 0 0 1 18 10 A 3 3 0 0 1 18 4",""]},"tag":{"d":"M 3.5 12.2 V 4.5 h 7.7 l 9.3 9.3 l -7.7 7.7 Z M 7.8 8.2 h 0.01","p":["","",""]},"tape":{"d":"M 9.5 6.5 a 5.5 5.5 0 1 0 0 11 h 11 v -3.4 h -6","p":["M 9.5 9 a 3 3 0 1 0 0 6 a 3 3 0 1 0 0 -6 z","M 17 14.1 v -1.6 M 14.4 14.1 v -1.2",""]},"text":{"d":"M 4 4.5 h 16 v 10.5 h -8.2 L 7.5 19 v -4 H 4 z","p":["M 4 4.5 h 16 v 10.5 h -8.2 L 7.5 19 v -4 H 4 z","M 8 8.4 h 8 M 8 11.4 h 5",""]},"text3d":{"d":"M 4.5 19 L 9.5 5 h 2.2 l 5 14 M 6.8 13.5 h 7.6 M 11.7 5 l 2.8 -1.8 h 2.2 l 5 14 l -2.3 1.8","p":["M 9.5 5 h 2.2 l 2.8 -1.8 h 2.2 l -2.8 1.8 z","",""]},"undo":{"d":"M 9 5.5 L 4.5 10 L 9 14.5 M 5 10 h 9 a 5 5 0 0 1 0 10 h -2.5","p":["","",""]},"union":{"d":"M 12 8.45 A 5.2 5.2 0 1 0 12 15.55 A 5.2 5.2 0 1 0 12 8.45 Z","p":["M 12 8.45 A 5.2 5.2 0 1 0 12 15.55 A 5.2 5.2 0 1 0 12 8.45 Z","",""]},"walk":{"d":"M 12 8.2 l -3.2 4.3 l 2.1 1.4 l -1.4 6.6 M 12 8.2 l 2.6 3.6 l 3 1.1 M 11 13.9 l 3 2 l 1.1 4.6","p":["","","M 11.4 3.6 a 2 2 0 1 0 4 0 a 2 2 0 1 0 -4 0 z"]},"working_plane":{"d":"M 3 18 H 15 L 21 10 H 9 Z M 9 18 L 15 10 M 6 14 H 18 M 12 14 V 3.5 M 10 5.5 L 12 3.5 L 14 5.5","p":["","",""]},"zoom":{"d":"M 10.5 4.2 a 6.3 6.3 0 1 0 0 12.6 a 6.3 6.3 0 1 0 0 -12.6 z M 15.2 15.2 l 5.3 5.3","p":["M 10.5 4.2 a 6.3 6.3 0 1 0 0 12.6 a 6.3 6.3 0 1 0 0 -12.6 z","M 10.5 7.8 v 5.4 M 7.8 10.5 h 5.4",""]},"zoomextents":{"d":"M 3.8 8.5 V 3.8 h 4.7 M 15.5 3.8 h 4.7 v 4.7 M 20.2 15.5 v 4.7 h -4.7 M 8.5 20.2 H 3.8 v -4.7","p":["M 8.2 8.2 h 7.6 v 7.6 H 8.2 z","M 8.2 8.2 h 7.6 v 7.6 H 8.2 z",""]}};
+var NS = "http://www.w3.org/2000/svg";
+function icon(name) {
+  var d = ICONS[name], s = document.createElementNS(NS, "svg");
+  s.setAttribute("viewBox", "0 0 24 24"); s.setAttribute("class", "ic"); s.setAttribute("aria-hidden", "true");
+  if (!d) return s;
+  function path(dd, attrs) { if (!dd) return; var p = document.createElementNS(NS, "path"); p.setAttribute("d", dd); for (var k in attrs) p.setAttribute(k, attrs[k]); s.appendChild(p); }
+  var line = { "fill": "none", "stroke-width": "1.9", "stroke-linecap": "round", "stroke-linejoin": "round" };
+  path(d.p[0], { "fill": "#141515", "fill-opacity": "0.10" });
+  path(d.d, Object.assign({ "stroke": "#141515" }, line));
+  path(d.p[1], Object.assign({ "stroke": "#d7261e" }, line));
+  path(d.p[2], { "fill": "#d7261e" });
+  return s;
+}
+function btn(name, on) { var b = document.createElement("span"); b.className = "tb-btn" + (on ? " on" : ""); b.appendChild(icon(name)); return b; }
+document.querySelectorAll("[data-bar]").forEach(function (bar) {
+  bar.getAttribute("data-bar").split(" ").forEach(function (n) {
+    if (n === "|") { var s = document.createElement("span"); s.className = "sep"; bar.appendChild(s); }
+    else if (n === "VIEWS") { var v = document.createElement("span"); v.className = "views"; v.textContent = "Iso  Top  North  South  East  West"; v.style.whiteSpace = "pre"; bar.appendChild(v); }
+    else bar.appendChild(btn(n, false));
+  });
+});
+document.querySelectorAll("[data-rail]").forEach(function (r) {
+  r.getAttribute("data-rail").split(" ").forEach(function (n, k) {
+    if (n === "-") { var g = document.createElement("span"); g.className = "gap"; r.appendChild(g); }
+    else r.appendChild(btn(n, n === "select"));
+  });
+});
+document.querySelectorAll("[data-strip]").forEach(function (r) { r.getAttribute("data-strip").split(" ").forEach(function (n) { r.appendChild(btn(n, false)); }); });
+document.querySelectorAll("[data-tools]").forEach(function (g) {
+  g.getAttribute("data-tools").split(";").forEach(function (pair) {
+    var i = pair.indexOf(":"), el = document.createElement("div"); el.className = "tool";
+    el.appendChild(icon(pair.slice(0, i))); var t = document.createElement("span"); t.textContent = pair.slice(i + 1); el.appendChild(t); g.appendChild(el);
+  });
+});
+document.querySelectorAll("[data-icons]").forEach(function (g) { g.getAttribute("data-icons").split(" ").forEach(function (n) { g.appendChild(icon(n)); }); });
+document.querySelectorAll("[data-i]").forEach(function (e) { e.insertBefore(icon(e.getAttribute("data-i")), e.firstChild); var s = e.firstChild; s.style.width = "14px"; s.style.height = "14px"; });
+
+document.getElementById("copy").addEventListener("click", function () {
+  var text = document.getElementById("mail").textContent, out = document.getElementById("copied");
+  function select() { var r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); out.textContent = "Selected: press Ctrl+C to copy"; }
+  try { navigator.clipboard.writeText(text).then(function () { out.textContent = "Copied"; }, select); } catch (e) { select(); }
+});
+</script>
+</body>
+</html>
