@@ -1,8 +1,8 @@
 {
-  "version": "0.12.1",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.12.1.exe",
-  "size": 47794399,
-  "sha256": "2a84abf2503c9f35eb5e2494182f506054c5dcd6914a6098162798ab24b438d3",
-  "notes": "Smoother orbit, zoom and pan in big models. SketchUp files bring their scenes, and photos fitted to frames show once. Brighter shading, as in SketchUp. Akar is offered under Open with for .skp files.",
-  "published": "2026-11-04"
+  "version": "0.12.2",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.12.2.exe",
+  "size": 47793229,
+  "sha256": "b707def8aa72608e00cf12f6c6e72c06f8543256157c1dc37ffb874c81b88aaa",
+  "notes": "New Illustrated styles: ink outlines, soft steps of light, warm colours and calm textures, with a hand-drawn option. Materials can glow, for lights and LED strips. Edges behind glass and sheer curtains are now seen through them, softened.",
+  "published": "2026-11-06"
 }
