@@ -1,8 +1,8 @@
 {
-  "version": "0.13.4",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.4.exe",
-  "size": 47845373,
-  "sha256": "cabede795e80a4dcb7a0dd858588685cbdd272189510696713e3bbc9603cd057",
-  "notes": "The render pack now updates on its own: Akar looks for a newer one once a day and downloads it in the background (a render already going finishes first). Help → About shows the render pack's version. Also from 0.13.3: photoreal renders have their sunlight back, tree leaves are cut out, and the light's colour is balanced.",
-  "published": "2026-11-07"
+  "version": "0.13.5",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.5.exe",
+  "size": 47856581,
+  "sha256": "955247960872cfaaf4b2ff5f31106ac82d71a8dea1131eca96a9dca8734f0c3c",
+  "notes": "Glass looks like glass in photoreal renders: wine glasses, vases and bottles (photoreal materials) bend the light, with real glass's highlights and edges; windows are clear, even seen at a slant (the render pack updates itself). Edit Material's photoreal settings are now Glossiness, Reflectivity and Metal. Every slider has a box to type its value. The Render window shows the current view before you render. Choosing Paint opens the Materials panel.",
+  "published": "2026-11-08"
 }
