@@ -1,8 +1,8 @@
 {
-  "version": "0.12.2",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.12.2.exe",
-  "size": 47793229,
-  "sha256": "b707def8aa72608e00cf12f6c6e72c06f8543256157c1dc37ffb874c81b88aaa",
-  "notes": "New Illustrated styles: ink outlines, soft steps of light, warm colours and calm textures, with a hand-drawn option. Materials can glow, for lights and LED strips. Edges behind glass and sheer curtains are now seen through them, softened.",
-  "published": "2026-11-06"
+  "version": "0.13.2",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.2.exe",
+  "size": 47833290,
+  "sha256": "68ea4e37fe47ee016cd2d15ba97fdefa1660ee1b965a513152ad161267c1f2e7",
+  "notes": "New Render window: quick renders in seconds, and photoreal renders with Cycles on NVIDIA graphics cards (the renderer downloads once, about 97 MB). Lamps to place in the model; materials named like lamps glow. Big SketchUp files open directly. Axes run on to the horizon, a new compass, finer edges in the default style.",
+  "published": "2026-11-07"
 }
