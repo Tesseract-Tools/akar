@@ -1,8 +1,8 @@
 {
-  "version": "0.13.3",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.3.exe",
-  "size": 47833245,
-  "sha256": "0fa30a30c5a0d45ab970e61279632a6c300b6010391dff03d2a9bc9640f1e41c",
-  "notes": "Photoreal renders have their sunlight back and no longer stop now and then (the renderer updates once, about 97 MB). Tree leaves come out cut out, not as dark glass; the light's colour is balanced; paint colours such as \"Light Olive\" aren't taken for lamps.",
+  "version": "0.13.4",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.4.exe",
+  "size": 47845373,
+  "sha256": "cabede795e80a4dcb7a0dd858588685cbdd272189510696713e3bbc9603cd057",
+  "notes": "The render pack now updates on its own: Akar looks for a newer one once a day and downloads it in the background (a render already going finishes first). Help → About shows the render pack's version. Also from 0.13.3: photoreal renders have their sunlight back, tree leaves are cut out, and the light's colour is balanced.",
   "published": "2026-11-07"
 }
