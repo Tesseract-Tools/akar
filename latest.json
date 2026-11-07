@@ -1,8 +1,8 @@
 {
-  "version": "0.13.2",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.2.exe",
-  "size": 47833290,
-  "sha256": "68ea4e37fe47ee016cd2d15ba97fdefa1660ee1b965a513152ad161267c1f2e7",
-  "notes": "New Render window: quick renders in seconds, and photoreal renders with Cycles on NVIDIA graphics cards (the renderer downloads once, about 97 MB). Lamps to place in the model; materials named like lamps glow. Big SketchUp files open directly. Axes run on to the horizon, a new compass, finer edges in the default style.",
+  "version": "0.13.3",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.3.exe",
+  "size": 47833245,
+  "sha256": "0fa30a30c5a0d45ab970e61279632a6c300b6010391dff03d2a9bc9640f1e41c",
+  "notes": "Photoreal renders have their sunlight back and no longer stop now and then (the renderer updates once, about 97 MB). Tree leaves come out cut out, not as dark glass; the light's colour is balanced; paint colours such as \"Light Olive\" aren't taken for lamps.",
   "published": "2026-11-07"
 }
