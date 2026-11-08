@@ -1,8 +1,8 @@
 {
-  "version": "0.13.6",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.6.exe",
-  "size": 47868172,
-  "sha256": "4627a2fd3be144e32a22b3993d1425eac6b3e5d116e9912e61c15f19fd52770c",
-  "notes": "Save as SketchUp: File > Save As and Save a Copy As now offer SketchUp model (*.skp), for SketchUp 2021 to 2026 or SketchUp 2020 back to 2017. You keep working in the Akar model. Export > 3D Model > SketchUp File does the same, with options. Faces, groups, components, tags and tag folders, materials and textures, photoreal settings, scenes, section planes, text and dimensions go in, and the file opens at your view. It uses the SketchUp installed on your PC. Opening a .skp now keeps its tag folders.",
+  "version": "0.14.0",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.0.exe",
+  "size": 47890598,
+  "sha256": "325b4274394fa6df8ddfe02441ba2ce5f2b7a4829c50da084fc3c7d70b813781",
+  "notes": "Lights replace Lamps: down lights, spot lights, panel lights, strip lights and filler lights (bulbs). Each is a point you select, with no fitting in the model, and new lights go on a Lights tag. Placing or selecting a light opens its settings on the right: lumens with watts, colour temperature, beam angle and edge softness, size, position and target. Select several to change them together. Down and spot lights show their position and target points (drag them to move or aim the light) and their beam as a cone. Lights light Quick and Photoreal renders.",
   "published": "2026-11-08"
 }
