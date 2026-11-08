@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Akar by Tesseract Studio">
 <meta property="og:title" content="Akar: 3D modelling for architects">
-<meta property="og:description" content="A free 3D modeller for Windows from Tesseract Studio, Hyderabad. SketchUp-style tools, AutoCAD plans to 3D floors, and an Assistant that builds with you.">
+<meta property="og:description" content="A free 3D modeller for Windows from Tesseract Studio, Hyderabad. SketchUp-style tools that open and save .skp files, AutoCAD plans to 3D floors, and an Assistant that builds with you.">
 <meta property="og:url" content="https://akar.tesseractstudio.co/">
 <meta property="og:image" content="https://akar.tesseractstudio.co/img/og-card.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Akar by Tesseract Studio: 3D modelling for architects, free for Windows">
 <meta name="twitter:card" content="summary_large_image">
 <title>Akar by Tesseract Studio</title>
-<meta name="description" content="Akar is a free 3D modeller for Windows from Tesseract Studio, Hyderabad: SketchUp-style tools, AutoCAD plans to 3D floors, tools SketchUp doesn't have, and an Assistant that builds what you describe.">
+<meta name="description" content="Akar is a free 3D modeller for Windows from Tesseract Studio, Hyderabad: SketchUp-style tools that open and save .skp files, AutoCAD plans to 3D floors, tools SketchUp doesn't have, and an Assistant that builds what you describe.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -156,8 +156,32 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
 .points b { font-weight: 600; }
 .note { margin-top: 28px; padding: 16px 18px; border: 1px dashed var(--graphite); font-size: 0.95rem; max-width: 760px; }
 
+/* Render: the same view as Quick and Photoreal, with a slider between them */
+/* --ratio is the pictures' width / height; the figure keeps the whole picture within one screen's height */
+.compare-wrap { margin: 0 auto; display: grid; gap: 10px; width: 100%; max-width: max(320px, calc((100vh - 170px) * var(--ratio, 1.7778))); }
+@supports (height: 100svh) { .compare-wrap { max-width: max(320px, calc((100svh - 170px) * var(--ratio, 1.7778))); } }
+.compare { --pos: 50%; position: relative; aspect-ratio: var(--ratio, 1.7778); overflow: hidden; border: 1px solid #c9cdcc; border-radius: 8px; background: #dfe2e1; box-shadow: 0 18px 40px -24px rgba(20, 21, 21, 0.45); cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+.compare .before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.compare .handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 0 1px rgba(20, 21, 21, 0.2); pointer-events: none; }
+.compare .grip { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; transform: translate(-50%, -50%); border-radius: 50%; background: #fff; box-shadow: 0 2px 10px rgba(20, 21, 21, 0.35); display: grid; place-items: center; color: var(--ink); }
+.compare .grip svg { width: 22px; height: 22px; }
+.compare .ctag { position: absolute; top: 12px; font: 500 0.7rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(20, 21, 21, 0.72); padding: 7px 9px; border-radius: 2px; pointer-events: none; }
+.compare .ctag.q { left: 12px; }
+.compare .ctag.p { right: 12px; }
+.compare input { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.compare:has(input:focus-visible) { outline: 2px solid var(--red); outline-offset: 3px; }
+.compare-wrap figcaption { font: 400 0.8rem/1.45 var(--mono); color: var(--graphite); }
+.modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--rule); background: var(--panel); margin-top: 36px; }
+.modes > div { padding: 22px 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.modes > div + div { border-left: 1px solid var(--rule); }
+.modes .label { color: var(--red); }
+.points.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 36px; }
+.points.three li { align-content: start; }
+
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .chip { font: 500 0.78rem/1 var(--mono); border: 1px solid var(--rule); background: var(--panel); padding: 7px 9px; border-radius: 2px; }
+.chip.key { border-color: var(--red); color: var(--red); }
 .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 .cols > div { display: grid; gap: 6px; align-content: start; min-width: 0; }
 
@@ -185,13 +209,19 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
   .hero-copy, .split, .download .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .titleblock .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tb { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); }
-  .extras, .cols { grid-template-columns: minmax(0, 1fr); }
+  .extras, .cols, .modes, .points.three { grid-template-columns: minmax(0, 1fr); }
+  .modes > div + div { border-left: 0; border-top: 1px solid var(--rule); }
+  .points.three { gap: 16px; }
   .flow { grid-template-columns: minmax(0, 1fr); }
   .flow > div { border-left: 0; border-top: 1px solid var(--rule); }
   .flow > div:first-child { border-top: 0; }
   .req div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 @media (max-width: 640px) {
+  .compare .ctag { top: 8px; padding: 5px 7px; font-size: 0.64rem; }
+  .compare .ctag.q { left: 8px; }
+  .compare .ctag.p { right: 8px; }
+  .compare .grip { width: 34px; height: 34px; }
   .rail, .strip, .win-menu span:not(.assist), .win-bar .views { display: none; }
   .win-body { grid-template-columns: minmax(0, 1fr); }
 }
@@ -203,7 +233,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Tesseract Studio, home"><img class="ts" src="img/tesseract-wordmark.png" alt="Tesseract Studio" width="1200" height="105"></a>
-    <nav class="nav" aria-label="Sections"><a href="#tools">Tools</a><a href="#only">Only in Akar</a><a href="#plans">AutoCAD plans</a><a href="#assistant">Assistant</a><a href="#download">Download</a></nav>
+    <nav class="nav" aria-label="Sections"><a href="#tools">Tools</a><a href="#only">Only in Akar</a><a href="#plans">AutoCAD plans</a><a href="#assistant">Assistant</a><a href="#render">Render</a><a href="#download">Download</a></nav>
   </div>
 </header>
 
@@ -214,7 +244,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
         <div>
           <span class="label">3D modelling for architects · Windows</span>
           <h1>Model the way you already draw.</h1>
-          <p class="lede">Akar is a 3D modeller from Tesseract Studio, an architecture practice in Hyderabad. It has the tools you know from SketchUp and a few it doesn't, turns AutoCAD plans into 3D floors, and has an Assistant that builds what you describe.</p>
+          <p class="lede">Akar is a 3D modeller from Tesseract Studio, an architecture practice in Hyderabad. It has the tools you know from SketchUp and a few it doesn't, turns AutoCAD plans into 3D floors, renders photoreal pictures, and has an Assistant that builds what you describe.</p>
         </div>
         <div class="hero-side">
           <div class="hero-mark-space"><img class="hero-mark" src="img/akar-wordmark.png" alt="Ākar" width="900" height="238"></div>
@@ -234,7 +264,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
     <div class="wrap">
       <div class="tb"><span class="label">Drawing</span><b>Akar 0.13.5</b></div>
       <div class="tb"><span class="label">Units</span><b>mm, m, ft-in</b></div>
-      <div class="tb"><span class="label">Opens</span><b>DWG, DXF, OBJ, IFC…</b></div>
+      <div class="tb"><span class="label">Opens and saves</span><b>SKP, DWG, DXF, IFC…</b></div>
       <div class="tb"><span class="label">Price</span><b>Free</b></div>
       <div class="tb"><span class="label">Drawn by</span><b>Tesseract Studio</b></div>
     </div>
@@ -246,7 +276,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
       <div class="split">
         <div style="display:grid;gap:22px">
           <div class="stat">230 of 251<small>features of SketchUp Pro 2022 work the same way in Akar, down to the keys and the status-bar hints, in our own side-by-side test.</small></div>
-          <p class="muted">Typed lengths, inference snapping, Shift to lock a direction, the same shortcuts. Groups and components, tags and the Outliner, sections with hatches, shadows by date and place, scenes and animations.</p>
+          <p class="muted">It opens and saves SketchUp files, so your existing models come with you. Typed lengths, inference snapping, Shift to lock a direction, the same shortcuts. Groups and components, tags and the Outliner, sections with hatches, shadows by date and place, scenes and animations.</p>
         </div>
         <div class="tools" data-tools="line:Line;rectangle:Rectangle;circle:Circle;arc2:Arc;pushpull:Push/Pull;followme:Follow Me;offset:Offset;move:Move;rotate:Rotate;scale:Scale;tape:Tape Measure;dimension:Dimension;paint:Paint Bucket;eraser:Eraser;section:Section Plane;component:Components;tag:Tags;outliner:Outliner;shadows:Shadows;scenes:Scenes;style_xray:X-ray;fromcontours:Sandbox;union:Solid Tools;walk:Walk"></div>
       </div>
@@ -305,15 +335,41 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
     </div>
   </section>
 
+  <section class="sheet" id="render">
+    <div class="wrap">
+      <div class="sheet-head"><span class="no">SHEET 05 · RENDER</span><h2>From model to photograph, in the same window.</h2><p class="muted">Render the view you're on, or any scene. A quick picture in seconds, or a photoreal one with real sunlight, sky and lamps.</p></div>
+      <!-- Render pictures: set --ratio, width/height and srcset widths to match the pictures used. -->
+      <figure class="compare-wrap" style="--ratio: 1.7778">
+        <div class="compare" id="compare">
+          <img src="img/render-photoreal.jpg" srcset="img/render-photoreal-small.jpg 1280w, img/render-photoreal.jpg 1920w" sizes="(max-width: 1190px) 100vw, 1160px" alt="A living and dining room rendered Photoreal in Akar, with daylight from the windows" width="1920" height="1080" loading="lazy" decoding="async">
+          <div class="before"><img src="img/render-quick.jpg" srcset="img/render-quick-small.jpg 1280w, img/render-quick.jpg 1920w" sizes="(max-width: 1190px) 100vw, 1160px" alt="The same room rendered Quick in Akar, with edges" width="1920" height="1080" loading="lazy" decoding="async"></div>
+          <span class="handle" aria-hidden="true"><span class="grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span></span>
+          <span class="ctag q" aria-hidden="true">Quick</span><span class="ctag p" aria-hidden="true">Photoreal</span>
+          <input type="range" min="0" max="100" value="50" step="1" aria-label="Compare the Quick render (left) with the Photoreal render (right)">
+        </div>
+        <figcaption>Drag across the picture to compare. The same camera, rendered Quick and Photoreal.</figcaption>
+      </figure>
+      <div class="modes">
+        <div><span class="label">Quick</span><h3>The view as Akar draws it, in seconds</h3><p class="muted">Textures, shadows and styles, smoothed and saved at full size. With or without edges. Good for checking a view or sending a picture straight away.</p></div>
+        <div><span class="label">Photoreal</span><h3>Light that behaves like real light</h3><p class="muted">Cycles path tracing: sun and sky for your date and place, lamps, glass and reflections. Draft to check, Final to send. It runs on an NVIDIA graphics card, or on the processor if there isn't one.</p></div>
+      </div>
+      <ul class="points three">
+        <li><b>Lamps</b><span class="muted">Downlights, spots, pendants, bulbs, LED strips, panels, wall lights and track spots, each with its lumens, colour temperature and beam.</span></li>
+        <li><b>Any size, every scene</b><span class="muted">HD, Full HD, 4K or your own size. Render all your scenes in one go and save them as PNG or JPEG.</span></li>
+        <li><b>Keeps itself up to date</b><span class="muted">The renderer (about 93 MB) downloads the first time you need it, then updates itself in the background.</span></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="sheet" id="files">
     <div class="wrap">
-      <div class="sheet-head"><span class="no">SHEET 05 · FILES</span><h2>It talks to the rest of your office.</h2></div>
+      <div class="sheet-head"><span class="no">SHEET 06 · FILES</span><h2>It talks to the rest of your office.</h2><p class="muted">Open your SketchUp models and carry on in Akar, then save back to .skp when someone needs the file in SketchUp.</p></div>
       <div class="cols">
-        <div><span class="label">Opens</span><div class="chips"><span class="chip">DWG</span><span class="chip">DXF</span><span class="chip">OBJ</span><span class="chip">STL</span><span class="chip">DAE</span><span class="chip">glTF</span><span class="chip">IFC</span><span class="chip">FBX</span><span class="chip">3DS</span><span class="chip">KMZ</span><span class="chip">PNG/JPG</span></div></div>
-        <div><span class="label">Saves 3D</span><div class="chips"><span class="chip">OBJ</span><span class="chip">DAE</span><span class="chip">STL</span><span class="chip">glTF</span><span class="chip">IFC</span><span class="chip">USDZ</span><span class="chip">DXF</span></div></div>
+        <div><span class="label">Opens</span><div class="chips"><span class="chip key">SKP</span><span class="chip">DWG</span><span class="chip">DXF</span><span class="chip">OBJ</span><span class="chip">STL</span><span class="chip">DAE</span><span class="chip">glTF</span><span class="chip">IFC</span><span class="chip">FBX</span><span class="chip">3DS</span><span class="chip">KMZ</span><span class="chip">PNG/JPG</span></div></div>
+        <div><span class="label">Saves 3D</span><div class="chips"><span class="chip key">SKP</span><span class="chip">OBJ</span><span class="chip">DAE</span><span class="chip">STL</span><span class="chip">glTF</span><span class="chip">IFC</span><span class="chip">USDZ</span><span class="chip">DXF</span></div></div>
         <div><span class="label">Saves drawings and pictures</span><div class="chips"><span class="chip">DWG</span><span class="chip">DXF</span><span class="chip">PDF</span><span class="chip">PNG</span><span class="chip">JPG</span><span class="chip">MP4</span></div></div>
       </div>
-      <p class="muted" style="margin-top:24px">Models are saved as .akr files. Plugins add tools, panels and file types, and install from one .akrplugin file.</p>
+      <p class="muted" style="margin-top:24px">Models are saved as .akr files, or as .skp for SketchUp. Plugins add tools, panels and file types, and install from one .akrplugin file.</p>
     </div>
   </section>
 
@@ -322,13 +378,14 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
       <div style="display:grid;gap:22px;align-content:start">
         <span class="label">Download</span>
         <h2>Akar 0.13.5 for Windows</h2>
-        <p class="muted">Free. One setup file, nothing else to install.</p>
+        <p class="muted">Free. One setup file. The photoreal renderer downloads itself the first time you use it.</p>
         <div class="cta"><a class="btn btn-red" href="download/Akar-Setup-0.13.5.exe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 19h16"/></svg>Download Akar-Setup-0.13.5.exe</a></div>
         <span class="small" style="color:#b8bdbd">48 MB · installs for you alone, no administrator rights needed</span>
         <dl class="req">
           <div><dt>Windows</dt><dd>Windows 10 (version 1809 or later) or Windows 11, 64-bit</dd></div>
           <div><dt>Graphics</dt><dd>OpenGL 3.3. Tested on Intel HD 630, Intel Arc and NVIDIA RTX.</dd></div>
           <div><dt>Disk</dt><dd>About 150 MB</dd></div>
+          <div><dt>Photoreal</dt><dd>Fastest on an NVIDIA graphics card; otherwise it uses the processor. About 93 MB more the first time.</dd></div>
           <div><dt>Assistant</dt><dd>Internet, and a Claude Pro or Max plan (through Claude Code) or an Anthropic API key</dd></div>
         </dl>
       </div>
@@ -359,7 +416,7 @@ svg.ic { width: 24px; height: 24px; flex: none; overflow: visible; }
   <div class="wrap">
     <img src="img/tesseract-logo.png" alt="Tesseract · Design | Build" width="1200" height="193">
     <span class="small">Tesseract Studio, Hyderabad · © 2026</span>
-    <p class="small" style="max-width:none;flex-basis:100%">SketchUp is a trademark of Trimble Inc. AutoCAD and DWG are trademarks of Autodesk, Inc. Claude is a trademark of Anthropic. Akar is an independent program from Tesseract Studio and is not made, endorsed or supported by these companies; their names are used only to describe what Akar works with.</p>
+    <p class="small" style="max-width:none;flex-basis:100%">SketchUp is a trademark of Trimble Inc. AutoCAD and DWG are trademarks of Autodesk, Inc. Claude is a trademark of Anthropic. NVIDIA and RTX are trademarks of NVIDIA Corporation. Akar is an independent program from Tesseract Studio and is not made, endorsed or supported by these companies; their names are used only to describe what Akar works with.</p>
   </div>
 </footer>
 
@@ -401,6 +458,18 @@ document.querySelectorAll("[data-tools]").forEach(function (g) {
 });
 document.querySelectorAll("[data-icons]").forEach(function (g) { g.getAttribute("data-icons").split(" ").forEach(function (n) { g.appendChild(icon(n)); }); });
 document.querySelectorAll("[data-i]").forEach(function (e) { e.insertBefore(icon(e.getAttribute("data-i")), e.firstChild); var s = e.firstChild; s.style.width = "14px"; s.style.height = "14px"; });
+
+(function () {
+  var c = document.getElementById("compare"); if (!c) return;
+  var r = c.querySelector("input"), dragging = false;
+  function set(v) { v = Math.max(0, Math.min(100, v)); c.style.setProperty("--pos", v + "%"); r.value = Math.round(v); }
+  function at(e) { var b = c.getBoundingClientRect(); set((e.clientX - b.left) / b.width * 100); }
+  c.addEventListener("pointerdown", function (e) { if (e.button !== 0) return; dragging = true; try { c.setPointerCapture(e.pointerId); } catch (x) {} at(e); });
+  c.addEventListener("pointermove", function (e) { if (dragging) at(e); });
+  function stop() { dragging = false; }
+  c.addEventListener("pointerup", stop); c.addEventListener("pointercancel", stop); c.addEventListener("lostpointercapture", stop);
+  r.addEventListener("input", function () { set(+r.value); });
+})();
 
 document.getElementById("copy").addEventListener("click", function () {
   var text = document.getElementById("mail").textContent, out = document.getElementById("copied");
