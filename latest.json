@@ -1,8 +1,8 @@
 {
-  "version": "0.13.5",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.5.exe",
-  "size": 47856581,
-  "sha256": "955247960872cfaaf4b2ff5f31106ac82d71a8dea1131eca96a9dca8734f0c3c",
-  "notes": "Glass looks like glass in photoreal renders: wine glasses, vases and bottles (photoreal materials) bend the light, with real glass's highlights and edges; windows are clear, even seen at a slant (the render pack updates itself). Edit Material's photoreal settings are now Glossiness, Reflectivity and Metal. Every slider has a box to type its value. The Render window shows the current view before you render. Choosing Paint opens the Materials panel.",
+  "version": "0.13.6",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.13.6.exe",
+  "size": 47868172,
+  "sha256": "4627a2fd3be144e32a22b3993d1425eac6b3e5d116e9912e61c15f19fd52770c",
+  "notes": "Save as SketchUp: File > Save As and Save a Copy As now offer SketchUp model (*.skp), for SketchUp 2021 to 2026 or SketchUp 2020 back to 2017. You keep working in the Akar model. Export > 3D Model > SketchUp File does the same, with options. Faces, groups, components, tags and tag folders, materials and textures, photoreal settings, scenes, section planes, text and dimensions go in, and the file opens at your view. It uses the SketchUp installed on your PC. Opening a .skp now keeps its tag folders.",
   "published": "2026-11-08"
 }
