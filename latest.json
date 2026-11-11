@@ -1,8 +1,8 @@
 {
-  "version": "0.14.0",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.0.exe",
-  "size": 47890598,
-  "sha256": "325b4274394fa6df8ddfe02441ba2ce5f2b7a4829c50da084fc3c7d70b813781",
-  "notes": "Lights replace Lamps: down lights, spot lights, panel lights, strip lights and filler lights (bulbs). Each is a point you select, with no fitting in the model, and new lights go on a Lights tag. Placing or selecting a light opens its settings on the right: lumens with watts, colour temperature, beam angle and edge softness, size, position and target. Select several to change them together. Down and spot lights show their position and target points (drag them to move or aim the light) and their beam as a cone. Lights light Quick and Photoreal renders.",
-  "published": "2026-11-08"
+  "version": "0.14.2",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.2.exe",
+  "size": 47907237,
+  "sha256": "c1fc979bb04d963ba75897ce07f3f35b941a5bdee5721815567fb8c27e1fe4ec",
+  "notes": "Push/Pull goes to the snap you see: a window's sill pushed down to the foot of the wall makes a door, and a rectangle pushed into a wall snaps at, and stops at, the wall's far side to cut the opening. Triple-click selects everything joined, window sides and inside walls too. Moving along an axis lands On Face on the face below. Thinner selected edges, sharper pointers (the drawing cross and the colour picker), circles with 72 sides, and SketchUp scenes with SketchUp's field of view.",
+  "published": "2026-11-11"
 }
