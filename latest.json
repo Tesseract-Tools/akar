@@ -1,8 +1,8 @@
 {
-  "version": "0.14.2",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.2.exe",
-  "size": 47907237,
-  "sha256": "c1fc979bb04d963ba75897ce07f3f35b941a5bdee5721815567fb8c27e1fe4ec",
-  "notes": "Push/Pull goes to the snap you see: a window's sill pushed down to the foot of the wall makes a door, and a rectangle pushed into a wall snaps at, and stops at, the wall's far side to cut the opening. Triple-click selects everything joined, window sides and inside walls too. Moving along an axis lands On Face on the face below. Thinner selected edges, sharper pointers (the drawing cross and the colour picker), circles with 72 sides, and SketchUp scenes with SketchUp's field of view.",
-  "published": "2026-11-11"
+  "version": "0.14.3",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.3.exe",
+  "size": 47916394,
+  "sha256": "33706428e6480e241842623160fd1c1e5edec1186465f6e6e5b6ba89bcfda5ee",
+  "notes": "Model files under a quarter of the size, checked after every save; opening and saving faster, with a progress bar (also when importing).",
+  "published": "2026-11-12"
 }
