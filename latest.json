@@ -1,8 +1,8 @@
 {
-  "version": "0.14.3",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.3.exe",
-  "size": 47916394,
-  "sha256": "33706428e6480e241842623160fd1c1e5edec1186465f6e6e5b6ba89bcfda5ee",
-  "notes": "Model files under a quarter of the size, checked after every save; opening and saving faster, with a progress bar (also when importing).",
+  "version": "0.14.4",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.4.exe",
+  "size": 47924560,
+  "sha256": "650af2d6bf6f4407120a1d531ccbd368316ba4261600646b06c593f9d9d5312b",
+  "notes": "Model files under a quarter of the size, checked after every save; opening and saving faster, with a progress bar (also when importing). File > Import CAD Plan (was Import AutoCAD Plan).",
   "published": "2026-11-12"
 }
