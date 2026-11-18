@@ -1,8 +1,8 @@
 {
-  "version": "0.14.4",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.14.4.exe",
-  "size": 47924560,
-  "sha256": "650af2d6bf6f4407120a1d531ccbd368316ba4261600646b06c593f9d9d5312b",
-  "notes": "Model files under a quarter of the size, checked after every save; opening and saving faster, with a progress bar (also when importing). File > Import CAD Plan (was Import AutoCAD Plan).",
-  "published": "2026-11-12"
+  "version": "0.15.0",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.15.0.exe",
+  "size": 53378155,
+  "sha256": "8c7042fa04a69d3b4049817c342809219a990a5a8e3be6252786a8d1c0637f6c",
+  "notes": "Realistic styles with a daylight sky with clouds over grass and soil (Styles > Edit > Background: Sky look and Ground look), real reflections and soft shadows. Smooth navigation in big models; quicker snapping, picking and walking. Fable 5.2 in the Assistant.",
+  "published": "2026-11-18"
 }
