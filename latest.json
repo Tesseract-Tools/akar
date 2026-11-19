@@ -1,8 +1,8 @@
 {
-  "version": "0.15.0",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.15.0.exe",
-  "size": 53378155,
-  "sha256": "8c7042fa04a69d3b4049817c342809219a990a5a8e3be6252786a8d1c0637f6c",
-  "notes": "Realistic styles with a daylight sky with clouds over grass and soil (Styles > Edit > Background: Sky look and Ground look), real reflections and soft shadows. Smooth navigation in big models; quicker snapping, picking and walking. Fable 5.2 in the Assistant.",
-  "published": "2026-11-18"
+  "version": "0.16.0",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.16.0.exe",
+  "size": 53387075,
+  "sha256": "89f5459bfbc521e282061d187a045f1f7753981c0a8d70df1a9658647c43c261",
+  "notes": "Solid Shapes in Draw: box, cylinder, cone, pyramid, sphere, dome, ellipsoid, torus, tube and capsule, resizable in Entity Info. Voids: tick Void on any closed solid and it cuts a hole in the solids it overlaps (a sink in a counter), with Make Permanent to bake the hole in. New models open in Realistic with Edges.",
+  "published": "2026-11-19"
 }
