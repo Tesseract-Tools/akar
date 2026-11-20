@@ -1,8 +1,8 @@
 {
-  "version": "0.17.0",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.0.exe",
-  "size": 53673836,
-  "sha256": "28d2ddfab9032a3a5c2a402cf388ed6b061809866aed04389d1b03af94aa6210",
-  "notes": "Water: a new kind of material (Edit Material > Kind > Water) with pool, lake, sea, river, pond and fountain presets, drawn as moving water in the Realistic view, with waves, ripples, reflections, depth colour, foam and light patterns on the floor (View > Animate Water). Light a Line: a strip light (turn it 0-360, or Up, Down, Away, In, Out) or a rope light along any line, curve or shape's edges; the model's lights now light the Realistic view. The sun's disc and lens flare in Styles > Background. Side panels wrap their settings when narrow, and the mouse wheel moves a slider. New models open in Realistic with Edges with shadows on, and Realistic colours are neutral.",
+  "version": "0.17.1",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.1.exe",
+  "size": 53449827,
+  "sha256": "fb24be866ea1e0db322258f27f17d1c225a434b1eb2fd0d3baa4c1fd9843d8fd",
+  "notes": "Fixes from a tester: something copied out of a painted group keeps its material when pasted; zooming and orbiting over empty space go by what's on screen; imported plan walls meet whole at corners; importing another floor no longer rebuilds floors you've fixed by hand; moving along a locked axis snaps to points; water seen from afar no longer speckles once the view stops.",
   "published": "2026-11-20"
 }
