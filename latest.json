@@ -1,8 +1,8 @@
 {
-  "version": "0.16.0",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.16.0.exe",
-  "size": 53387075,
-  "sha256": "89f5459bfbc521e282061d187a045f1f7753981c0a8d70df1a9658647c43c261",
-  "notes": "Solid Shapes in Draw: box, cylinder, cone, pyramid, sphere, dome, ellipsoid, torus, tube and capsule, resizable in Entity Info. Voids: tick Void on any closed solid and it cuts a hole in the solids it overlaps (a sink in a counter), with Make Permanent to bake the hole in. New models open in Realistic with Edges.",
-  "published": "2026-11-19"
+  "version": "0.17.0",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.0.exe",
+  "size": 53673836,
+  "sha256": "28d2ddfab9032a3a5c2a402cf388ed6b061809866aed04389d1b03af94aa6210",
+  "notes": "Water: a new kind of material (Edit Material > Kind > Water) with pool, lake, sea, river, pond and fountain presets, drawn as moving water in the Realistic view, with waves, ripples, reflections, depth colour, foam and light patterns on the floor (View > Animate Water). Light a Line: a strip light (turn it 0-360, or Up, Down, Away, In, Out) or a rope light along any line, curve or shape's edges; the model's lights now light the Realistic view. The sun's disc and lens flare in Styles > Background. Side panels wrap their settings when narrow, and the mouse wheel moves a slider. New models open in Realistic with Edges with shadows on, and Realistic colours are neutral.",
+  "published": "2026-11-20"
 }
