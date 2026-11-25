@@ -1,8 +1,8 @@
 {
-  "version": "0.17.2",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.2.exe",
-  "size": 53459388,
-  "sha256": "682815ecc7b3eed5bc1780dae17e9a3292ef14cd1c509116a115f1809d53fa1f",
-  "notes": "Balconies: railings, parapets and floor edges are read from their layers (or Akar asks what's along a balcony's open side), and balconies and terraces get their floors, a little below the rooms'. Glass: fluted, reeded, textured, wired, frosted band, tinted, reflective and back-painted glass in the library, and a Pattern for any glass in Edit Material.",
-  "published": "2026-11-20"
+  "version": "0.17.3",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.3.exe",
+  "size": 53701518,
+  "sha256": "f2cd6c10165e4254f289740f9da8d0376f4c2c0428782427884dff5f4d62471f",
+  "notes": "Curved walls now come through from CAD plans. Importing a DWG or DXF asks whether to make 3D from it, and after building you can keep or delete the CAD plan. Entity Info has texture buttons for one face (Position, Tile origin, Flip, Rotate 90, Reset). Edit > Join Collinear Edges, and Round Corners rounds a split edge as one. Lifting a circle inside a circle makes a cone. Copied or moved edges split the face they cross. Paste shows the object itself. Other copies stay in full while editing a component. Move along an axis snaps to points behind where the object stood. Walls no longer go see-through when you're close to another wall.",
+  "published": "2026-11-25"
 }
