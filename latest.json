@@ -1,8 +1,8 @@
 {
-  "version": "0.17.4",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.4.exe",
-  "size": 53709663,
-  "sha256": "2a00d798ec051195d105e76947dc8fbb736f3190bbe47e51b5c286305d842f0f",
-  "notes": "Plans read better: walls meeting in a solid corner or round a small duct now join, so rooms close without asking for a missing wall. A railing drawn with several lines is one railing. Sliding doors are read as sliding and built as glazed sliding doors (or click a door on the plan: Make it a sliding door). After keeping or deleting the CAD plan, Akar offers Show it in 3D, and orbiting out of the plan review goes back to perspective. A kept CAD plan comes in as the imported drawing, lined up with the walls under the floor slab.",
+  "version": "0.17.5",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.5.exe",
+  "size": 53693619,
+  "sha256": "0feceb24e4465af075ed8a0dcca073fb9cabef3508ba623ec1200b830756b8ac",
+  "notes": "Water no longer turns white with foam when the view stops (a face painted water on one side only read as 0 mm deep). Water, gloss and reflections now show only in the Realistic styles: in the Default and other styles every material is its colour and texture, water its colour at its see-through amount. In Realistic, foam at the edges and the light's lines on the floor show only over a floor or shore, not as a band along the far walls.",
   "published": "2026-11-27"
 }
