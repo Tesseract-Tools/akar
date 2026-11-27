@@ -1,8 +1,8 @@
 {
-  "version": "0.17.3",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.3.exe",
-  "size": 53701518,
-  "sha256": "f2cd6c10165e4254f289740f9da8d0376f4c2c0428782427884dff5f4d62471f",
-  "notes": "Curved walls now come through from CAD plans. Importing a DWG or DXF asks whether to make 3D from it, and after building you can keep or delete the CAD plan. Entity Info has texture buttons for one face (Position, Tile origin, Flip, Rotate 90, Reset). Edit > Join Collinear Edges, and Round Corners rounds a split edge as one. Lifting a circle inside a circle makes a cone. Copied or moved edges split the face they cross. Paste shows the object itself. Other copies stay in full while editing a component. Move along an axis snaps to points behind where the object stood. Walls no longer go see-through when you're close to another wall.",
-  "published": "2026-11-25"
+  "version": "0.17.4",
+  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.17.4.exe",
+  "size": 53709663,
+  "sha256": "2a00d798ec051195d105e76947dc8fbb736f3190bbe47e51b5c286305d842f0f",
+  "notes": "Plans read better: walls meeting in a solid corner or round a small duct now join, so rooms close without asking for a missing wall. A railing drawn with several lines is one railing. Sliding doors are read as sliding and built as glazed sliding doors (or click a door on the plan: Make it a sliding door). After keeping or deleting the CAD plan, Akar offers Show it in 3D, and orbiting out of the plan review goes back to perspective. A kept CAD plan comes in as the imported drawing, lined up with the walls under the floor slab.",
+  "published": "2026-11-27"
 }
