@@ -1,6 +1,6 @@
 // Keeps the viewer on the phone so it opens without a connection, and takes models shared to it
 // (Android: Share > Akar, once added to the home screen).
-const VERSION = "akar-viewer-0.19.1";
+const VERSION = "akar-viewer-0.19.2";
 const SHELL = ["./", "index.html", "app.js", "worker.js", "app.css", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png", "brand/akar-wordmark.png", "brand/tesseract-logo.png"];
 
 self.addEventListener("install", (e) => {
