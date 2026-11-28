@@ -1,0 +1,25 @@
+{
+  "name": "Akar",
+  "short_name": "Akar",
+  "description": "View Akar models on your phone: scenes, styles, measuring, sheets, pictures and PDFs.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f5f7",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "share_target": {
+    "action": "./share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": { "files": [{ "name": "model", "accept": [".akr", "application/octet-stream", "*/*"] }] }
+  },
+  "file_handlers": [
+    { "action": "./", "accept": { "application/x-akar": [".akr"] } }
+  ]
+}
