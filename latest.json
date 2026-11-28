@@ -1,8 +1,8 @@
 {
-  "version": "0.18.0",
-  "url": "https://akar.tesseractstudio.co/download/Akar-Setup-0.18.0.exe",
-  "size": 53875708,
-  "sha256": "c26dba91ca354ec744db4b19f1ecabe447372a1772619e65df9ad736e05c5374",
-  "notes": "Sheets: drawing sheets inside the model. Viewports showing a scene or a view of their own, worked inside, with a locked scale, their own style, switches and projection. Title panels, text, dimension and leader styles, line types; dimensions and labels tied to the model; drawing on sheets; renders, pictures and PDF pages kept in the model; batch plot to PDF, DWG or pictures. The Assistant can make and plot sheets. New 2D tools for the model: Trim Lines, Extend Lines, Round Corners 2D (fillet and chamfer), Array, Ellipse and Curve. Polar tracking settings; Rotate measures from its reference line in any plane.",
-  "published": "2026-11-28"
+    "version":  "0.19.0",
+    "url":  "https://akar.tesseractstudio.co/download/Akar-Setup-0.19.0.exe",
+    "size":  53877527,
+    "sha256":  "1154490081f5d44cc18315cc2902c9a36af05ea801547d07760787778c95104d",
+    "notes":  "Models in tabs: open several models in one window; Ctrl+N asks the units and starts a model in a new tab; a model double-clicked while Akar runs opens in a new tab. One Import (the file type decides; a DWG asks whether to make 3D from it or bring it in as a drawing) and one Export. Scene tabs and Model/sheet tabs sit above and below the view; less empty space around the view. Plotted PDFs carry the real fonts; font lists show each font in its own face. Section fill materials in collapsible collections. Round Corners and Fillet have their own icons; the pointer shows Orbit or Pan while the view is moved. The Environments panel is gone (Shadows sets the sun and sky). File types by their extensions.",
+    "published":  "2026-11-28"
 }
